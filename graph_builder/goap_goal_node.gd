@@ -14,4 +14,4 @@ func get_prerequisites() -> Array[GOAPCondition]:
 
 
 func _to_string() -> String:
-	return "GOAP Action: %s" % goal.name
+	return "GOAP Goal: %s" % goal.name

@@ -34,6 +34,7 @@ func heuristic(h_value:Variant) -> Variant:
 		LESS_EQUAL_THAN:
 			return clamp(h_value - value, 0, INF)
 		_: # unreachable
+			push_error("girl what")
 			return INF
 
 
@@ -43,7 +44,32 @@ func effect_works_towards(effect:GOAPEffect) -> bool:
 			GREATER_THAN, GREATER_EQUAL_THAN:
 				return effect.operation == GOAPIntEffect.INCREMENT
 			LESS_THAN, LESS_EQUAL_THAN:
-				return effect.operation == GOAPIntEffect.DECREMENT # TODO: Set AND set would put it in range
+				return effect.operation == GOAPIntEffect.DECREMENT
+			EQUAL:
+				if effect.operation == GOAPIntEffect.SET:
+					return effect.value == value
+				else:
+					return true
 			_:
 				return true 
 	return false
+
+
+func satisfied_by(v:Variant) -> bool:
+	if not v is int:
+		return false 
+	
+	match condition:
+		EQUAL:
+			return v == value
+		GREATER_THAN:
+			return v > value
+		GREATER_EQUAL_THAN:
+			return v >= value
+		LESS_THAN:
+			return v < value
+		LESS_EQUAL_THAN:
+			return v <= value
+		_: # unreachable
+			push_error("girl what")
+			return false

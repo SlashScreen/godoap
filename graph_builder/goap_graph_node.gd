@@ -19,9 +19,11 @@ func is_satisfied(state:Dictionary) -> bool:
 
 
 func satisfied_by_state(state:Dictionary) -> bool:
-	return get_prerequisites().all(func(c:GOAPCondition) -> bool: 
+	return get_prerequisites().all(func(c:GOAPCondition) -> bool:
+		print("State has key? %s" % state.has(c.key))
 		if state.has(c.key):
+			print("Satisfied? : %s" % c.satisfied_by(state[c.key]))
 			return c.satisfied_by(state[c.key])
 		else:
-			return true
+			return false
 		)
