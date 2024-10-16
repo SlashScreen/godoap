@@ -59,7 +59,6 @@ static func _heuristics(node:GOAPGraphNode, state:Dictionary) -> float:
 
 
 static func _retrace_path(goal:GOAPGraphNode, path:Dictionary) -> Array[GOAPGraphNode]:
-	print("Retracing path ", path, " starting from ", goal)
 	
 	var current := goal 
 	var res:Array[GOAPGraphNode] = []
@@ -72,3 +71,7 @@ static func _retrace_path(goal:GOAPGraphNode, path:Dictionary) -> Array[GOAPGrap
 	res.reverse()
 	
 	return res
+
+
+static func set_world_state(key:StringName, value:Variant) -> void: 
+	world_state[key] = value
