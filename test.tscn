@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://i1yy05l5qhi6"]
+[gd_scene load_steps=6 format=3 uid="uid://i1yy05l5qhi6"]
 
 [ext_resource type="Script" path="res://goap_agent.gd" id="1_lhtrn"]
 [ext_resource type="Script" path="res://test/test_action_1.gd" id="2_3bdgw"]
 [ext_resource type="Script" path="res://test/test_action_2.gd" id="3_18wea"]
 [ext_resource type="Script" path="res://test/test_goal.gd" id="4_1pay4"]
+[ext_resource type="Script" path="res://test/test_action_3.gd" id="4_wu31v"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -15,6 +16,9 @@ script = ExtResource("2_3bdgw")
 
 [node name="TestAction2" type="Node" parent="GOAPAgent"]
 script = ExtResource("3_18wea")
+
+[node name="TestAction3" type="Node" parent="GOAPAgent"]
+script = ExtResource("4_wu31v")
 
 [node name="TestGoal" type="Node" parent="GOAPAgent"]
 script = ExtResource("4_1pay4")
