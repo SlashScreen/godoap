@@ -51,7 +51,7 @@ static func _dist(agent:GOAPAgent, a:GOAPGraphNode, b:GOAPGraphNode) -> float:
 
 
 static func _heuristics(node:GOAPGraphNode, state:Dictionary) -> float:
-	return node.get_prerequisites().reduce(func(accum:float, next:GOAPCondition) -> float:
+	return node.get_conditions().reduce(func(accum:float, next:GOAPCondition) -> float:
 		if state.has(next.key):
 			return accum + next.heuristic(state[next.key])
 		return accum

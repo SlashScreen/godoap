@@ -3,7 +3,16 @@ extends Node
 
 
 static var config: GOAPConfig
-
+var _conditions:Array[GOAPCondition]:
+	get:
+		if _conditions.is_empty():
+			_conditions = _get_conditions()
+		return _conditions
+var _effects:Array[GOAPEffect]:
+	get:
+		if _effects.is_empty():
+			_effects = _get_effects()
+		return _effects
 
 func get_cost(_agent: GOAPAgent) -> float:
 	return 1.0
@@ -30,11 +39,19 @@ func on_end(_agent: GOAPAgent, _data: GOAPData) -> void:
 	pass
 
 
-func get_prerequisites() -> Array[GOAPCondition]:
+func get_conditions() -> Array[GOAPCondition]:
+	return _conditions
+
+
+func _get_conditions() -> Array[GOAPCondition]:
 	return []
 
 
 func get_effects() -> Array[GOAPEffect]:
+	return _effects
+
+
+func _get_effects() -> Array[GOAPEffect]:
 	return []
 
 

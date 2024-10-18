@@ -9,7 +9,7 @@ func _init(g:GOAPGoal) -> void:
 	goal = g
 
 
-func get_prerequisites() -> Array[GOAPCondition]:
+func get_conditions() -> Array[GOAPCondition]:
 	return goal.get_conditions()
 
 

@@ -9,11 +9,11 @@ func _init(a:GOAPAction = null) -> void:
 	action = a
 
 
-func get_prerequisites() -> Array[GOAPCondition]:
-	return action.get_prerequisites()
+func _get_conditions() -> Array[GOAPCondition]:
+	return action.get_conditions()
 
 
-func get_effects() -> Array[GOAPEffect]:
+func _get_effects() -> Array[GOAPEffect]:
 	return action.get_effects()
 
 

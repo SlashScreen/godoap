@@ -13,12 +13,12 @@ func render(graph:GOAPGraph) -> void:
 		new_node.title = str(n)
 		new_node.add_child(Label.new())
 		
-		for c:GOAPCondition in n.get_prerequisites():
+		for c:GOAPCondition in n.get_conditions():
 			var l := Label.new()
 			l.text = str(c)
 			new_node.add_child(l)
 		
-		if n.get_effects().size() > 0 and n.get_prerequisites().size() > 0:
+		if n.get_effects().size() > 0 and n.get_conditions().size() > 0:
 			new_node.add_child(HSeparator.new())
 		
 		for e:GOAPEffect in n.get_effects():

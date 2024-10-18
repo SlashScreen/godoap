@@ -20,7 +20,7 @@ static func build_graph(actions:Array[Node]) -> GOAPGraph:
 			effect_map.get_or_add(e.key, []).append([n, e])
 	
 	for n:GOAPGraphNode in nodes:
-		for c:GOAPCondition in n.get_prerequisites(): # for each prerequisite
+		for c:GOAPCondition in n.get_conditions(): # for each prerequisite
 			for e_packet:Array in effect_map.get_or_add(c.key, []): # for all that have that effect
 				var e_node:GOAPGraphNode = e_packet[0]
 				var e_effect:GOAPEffect = e_packet[1]
