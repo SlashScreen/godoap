@@ -21,6 +21,7 @@ func _test_basic_path() -> void:
 	world_state.clear()
 	var graph := GOAPGraphBuilder.build_graph(get_children())
 	print("Graph: ", graph.nodes)
+	%Graph.render(graph)
 	var path := GOAPSolver.plan(self, graph, graph.goals.keys()[0])
 	print("Path: ", path)
 

@@ -73,3 +73,20 @@ func satisfied_by(v:Variant) -> bool:
 		_: # unreachable
 			push_error("girl what")
 			return false
+
+
+func _to_string() -> String:
+	var op := ""
+	match condition:
+		EQUAL:
+			op = "=="
+		GREATER_THAN:
+			op = ">"
+		GREATER_EQUAL_THAN:
+			op = ">="
+		LESS_THAN:
+			op = "<"
+		LESS_EQUAL_THAN:
+			op = "<="
+	
+	return "Condition: %s %s %d" %[key, op, value]
